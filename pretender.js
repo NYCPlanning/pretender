@@ -184,13 +184,13 @@ function interceptor(ctx) {
     var uploadEvents = [];
 
     // properties to copy from the native xhr to fake xhr
-    var lifecycleProps = ['readyState', 'responseText', 'responseXML', 'status', 'statusText'];
+    var lifecycleProps = ['readyState', 'responseText', 'responseXML', 'status', 'statusText', 'response'];
 
     var xhr = fakeXHR._passthroughRequest = new ctx.pretender._nativeXMLHttpRequest();
     xhr.open(fakeXHR.method, fakeXHR.url, fakeXHR.async, fakeXHR.username, fakeXHR.password);
 
     if (fakeXHR.responseType === 'arraybuffer') {
-      lifecycleProps = ['readyState', 'response', 'status', 'statusText'];
+      lifecycleProps = ['readyState', 'response', 'status', 'statusText', 'response'];
       xhr.responseType = fakeXHR.responseType;
     }
 
