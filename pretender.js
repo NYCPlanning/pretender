@@ -190,7 +190,7 @@ function interceptor(ctx) {
     xhr.open(fakeXHR.method, fakeXHR.url, fakeXHR.async, fakeXHR.username, fakeXHR.password);
 
     if (fakeXHR.responseType === 'arraybuffer') {
-      lifecycleProps = ['readyState', 'response', 'status', 'statusText', 'response'];
+      lifecycleProps = ['readyState', 'response', 'status', 'statusText'];
       xhr.responseType = fakeXHR.responseType;
     }
 
